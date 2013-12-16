@@ -1,0 +1,10 @@
+*.py[co]
+*.egg*
+*.swp
+.DS_Store
+*~
+build
+*.db
+*.log
+_build
+fabfile.py
