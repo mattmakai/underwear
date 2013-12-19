@@ -71,6 +71,10 @@ def deploy(args):
     options.sudo_user = options.sudo_user or C.DEFAULT_SUDO_USER
 
     extra_vars={}
+    
+    skip_tags = options.skip_tags
+    if options.skip_tags is not None:
+        skip_tags = options.skip_tags.split(",")
 
     playbook = args[0]
     inventory.set_playbook_basedir(os.path.dirname(playbook))
