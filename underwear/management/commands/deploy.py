@@ -9,5 +9,5 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print args
         print args[0]
-        deploy(['django-stack.yml', '-i', *args[1]])
+        deploy(['django-stack.yml', '-i', args[1]])
         self.stdout.write('App successfully deployed to server.')
