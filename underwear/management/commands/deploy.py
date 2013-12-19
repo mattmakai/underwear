@@ -7,7 +7,7 @@ class Command(BaseCommand):
     help = 'Deploy to a remote server.'
 
     def handle(self, *args, **options):
-        print args
-        print args[0]
-        deploy(['django-stack.yml', '-i', args[1]])
+        if len(args) < 1:
+            print "Usage: manage.py deploy [hosts file location]\n"
+        deploy(['django-stack.yml', '-i', args[0]])
         self.stdout.write('App successfully deployed to server.')
