@@ -31,6 +31,7 @@ setup(
     package_dir={'underwear': 'underwear'},
     include_package_data=True,
     install_requires=[
+        'ansible',
     ],
     license="BSD",
     zip_safe=False,
