@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: underwear
+Version: 0.1.0
+Summary: Automated deployments for Python-powered web applications
+Home-page: https://github.com/makaimc/underwear
+Author: Matt Makai
+Author-email: matthew.makai@gmail.com
+License: BSD
+Description: ===============================
+        Underwear
+        ===============================
+        
+        .. image:: https://badge.fury.io/py/underwear.png
+            :target: http://badge.fury.io/py/underwear
+            
+        .. image:: https://travis-ci.org/makaimc/underwear.png?branch=master
+                :target: https://travis-ci.org/makaimc/underwear
+        
+        .. image:: https://pypip.in/d/underwear/badge.png
+                :target: https://crate.io/packages/underwear?version=latest
+        
+        
+        Automated deployments for Python-powered web applications
+        
+        * Free software: MIT license
+        * Documentation: http://underwear.rtfd.org.
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2013-12-16)
+        ++++++++++++++++++
+        
+        * First release on PyPI.
+Keywords: underwear
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
