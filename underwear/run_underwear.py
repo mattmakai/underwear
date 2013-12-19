@@ -70,6 +70,8 @@ def deploy(args):
         ask_sudo_pass=options.ask_sudo_pass)
     options.sudo_user = options.sudo_user or C.DEFAULT_SUDO_USER
 
+    extra_vars={}
+
     playbook = args[0]
     inventory.set_playbook_basedir(os.path.dirname(playbook))
     stats = callbacks.AggregateStats()
