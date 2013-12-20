@@ -74,6 +74,13 @@ def deploy(args):
 
     extra_vars={}
 
+    playbook = '/home/matt/Envs/t2r/lib/python2.7/site-packages/underwear/django-stack.yml'
+    inventory.set_playbook_basedir(os.path.dirname(playbook))
+    stats = callbacks.AggregateStats()
+    playbook_cb = callbacks.PlaybookCallbacks(verbose=utils.VERBOSITY)
+    runner_cb = callbacks.PlaybookRunnerCallbacks(stats, 
+        verbose=utils.VERBOSITY)
+    
     if not os.path.exists(playbook):
         raise errors.AnsibleError("the playbook: %s could not be found" % \
             playbook)
@@ -82,12 +89,6 @@ def deploy(args):
             raise errors.AnsibleError( \
                 "the playbook: %s does not appear to be a file" % playbook)
    
-    playbook = '/home/matt/Envs/t2r/lib/python2.7/site-packages/underwear/django-stack.yml'
-    inventory.set_playbook_basedir(os.path.dirname(playbook))
-    stats = callbacks.AggregateStats()
-    playbook_cb = callbacks.PlaybookCallbacks(verbose=utils.VERBOSITY)
-    runner_cb = callbacks.PlaybookRunnerCallbacks(stats, 
-        verbose=utils.VERBOSITY)
 
     pb = ansible.playbook.PlayBook(
         playbook=playbook,
