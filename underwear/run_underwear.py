@@ -17,6 +17,7 @@ import ansible.constants as C
 from ansible import errors, callbacks, utils
 from ansible.color import ANSIBLE_COLOR, stringc
 from ansible.callbacks import display
+from pkg_resources import resource_string
 
 
 def colorize(lead, num, color):
@@ -72,10 +73,8 @@ def deploy(args):
 
     extra_vars={}
    
-    from pkg_resources import resource_string
-    playbook = resource_string(__name__, args[0]) 
-    print "playbook: %s" % playbook
-    inventory.set_playbook_basedir(resource_string(__name__, args[0]))
+    playbook = '/home/matt/Envs/t2r/lib/python2.7/site-packages/underwear/django-stack.yml'
+    inventory.set_playbook_basedir(os.path.dirname(playbook))
     stats = callbacks.AggregateStats()
     playbook_cb = callbacks.PlaybookCallbacks(verbose=utils.VERBOSITY)
     runner_cb = callbacks.PlaybookRunnerCallbacks(stats, 
