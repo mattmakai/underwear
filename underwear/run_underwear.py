@@ -74,6 +74,7 @@ def deploy(args):
    
     from pkg_resources import resource_string
     playbook = resource_string(__name__, args[0]) 
+    print os.path.dirname(playbook)
     inventory.set_playbook_basedir(os.path.dirname(playbook))
     stats = callbacks.AggregateStats()
     playbook_cb = callbacks.PlaybookCallbacks(verbose=utils.VERBOSITY)
