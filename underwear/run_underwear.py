@@ -72,10 +72,6 @@ def deploy(args):
 
     extra_vars={}
     
-    skip_tags = options.skip_tags
-    if options.skip_tags is not None:
-        skip_tags = options.skip_tags.split(",")
-
     playbook = args[0]
     inventory.set_playbook_basedir(os.path.dirname(playbook))
     stats = callbacks.AggregateStats()
@@ -101,7 +97,7 @@ def deploy(args):
         extra_vars=extra_vars,
         private_key_file=options.private_key_file,
         only_tags=only_tags,
-        skip_tags=skip_tags,
+        skip_tags=None,
         check=options.check,
         diff=options.diff
     )
