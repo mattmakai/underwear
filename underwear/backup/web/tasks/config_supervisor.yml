@@ -1,0 +1,22 @@
+###
+# sets up the Supervisor configuration and handles any restarting issues
+# that can sometimes occur with supervisor.sock
+#
+---
+
+- name: check if supervisor.sock exists
+  stat: path=/var/run/supervisor.sock
+  register: supervisor_sock_file
+
+- name: delete supervisor.sock file so supervisor can start
+  command: rm /var/run/supervisor.sock
+  sudo: yes
+  when: supervisor_sock_file.stat.exists
+
+- name: write supervisor configuration for web application
+  template: src=supervisor.conf.j2 dest=/etc/supervisor/conf.d/{{app_name}}.conf
+  sudo: yes
+  notify:
+    - restart supervisor
+    - restart nginx
+

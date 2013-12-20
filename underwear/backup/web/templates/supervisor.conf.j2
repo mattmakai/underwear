@@ -1,0 +1,8 @@
+[program:{{app_name}}]
+environment=DEBUG={{django_debug}},PRODUCTION_MODE={{django_production_mode}},DATABASE_URL={{django_database_url}},STATIC_URL={{django_static_url}},SECRET_KEY={{django_secret_key}},INTERCOM_IO_APP_ID={{django_intercom_app_id}},INTERCOM_IO_API_SECRET={{django_intercom_secret_key}},STRIPE_SECRET_KEY={{django_stripe_secret_key}},STRIPE_PUBLIC_KEY={{django_stripe_public_key}},GITHUB_APP_ID={{django_github_app_id}},GITHUB_API_SECRET={{django_github_api_secret}},NEW_RELIC_CONFIG_FILE="{{app_code_dir}}/newrelic.ini"
+command={{virtualenv_dir}}/bin/newrelic-admin run-program {{virtualenv_dir}}/bin/gunicorn {{django_settings_dir_name}}.wsgi:application
+directory={{app_code_dir}}
+user={{deploy_user}}
+autostart=true
+autorestart=true
+redirect_stderr=True
