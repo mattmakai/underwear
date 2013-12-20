@@ -1,0 +1,11 @@
+##
+# these scripts set up a complete web application stack that is connected
+# to the remote database backend the other deployment scripts set up
+#
+---
+
+- include: install_web_packages.yml
+- include: config_web_server.yml
+- include: config_web_app.yml
+- include: config_supervisor.yml
+

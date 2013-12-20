@@ -1,0 +1,101 @@
+###
+# Pulls the code from a remote Git repository, configures the web application,
+# creates a virtualenv, and collects static assets
+#
+---
+
+- name: install known_hosts file to access GitHub
+  copy: src=ssh_conf/known_hosts dest={{ssh_dir}}/known_hosts
+
+- name: checkout latest web app code
+  git: repo={{code_repository}} dest={{app_code_dir}}
+
+- name: check if virtualenv already exists
+  stat: path={{virtualenv_dir}}
+  register: venv_dir
+
+- name: create virtualenv for Django web application
+  shell: virtualenv {{virtualenv_dir}}
+  when: venv_dir.stat.isdir is not defined
+
+- name: install web application dependencies listed in requirements.txt
+  pip: requirements={{app_code_dir}}/requirements.txt
+       virtualenv={{virtualenv_dir}}
+
+- name: check if app/static directory exists
+  stat: path={{app_code_dir}}/static
+  register: static_dir
+
+- name: create static directory for Django app if it does not exist
+  command: mkdir {{app_code_dir}}/static
+  when: static_dir.stat.isdir is not defined
+
+- name: Django collectstatic
+  django_manage: command=collectstatic 
+                 app_path={{app_code_dir}}
+                 virtualenv={{virtualenv_dir}}
+  environment:
+    DEBUG: "{{ django_debug }}"
+    PRODUCTION_MODE: "{{ django_production_mode }}"
+    DATABASE_URL: "{{ django_database_url }}"
+    STATIC_URL: "{{ django_static_url }}"
+    SECRET_KEY: "{{ django_secret_key }}"
+    INTERCOM_IO_APP_ID: "{{ django_intercom_io_app_id }}"
+    INTERCOM_IO_API_SECRET: "{{ django_intercom_io_api_secret }}"
+    STRIPE_SECRET_KEY: "{{ django_stripe_secret_key }}"
+    STRIPE_PUBLIC_KEY: "{{ django_stripe_public_key }}"
+    GITHUB_APP_ID: "{{ django_github_app_id }}"
+    GITHUB_API_SECRET: "{{ django_github_api_secret }}"
+
+- name: Django syncdb
+  django_manage: command=syncdb
+                 app_path={{app_code_dir}}
+                 virtualenv={{virtualenv_dir}}
+  environment:
+    DEBUG: "{{ django_debug }}"
+    PRODUCTION_MODE: "{{ django_production_mode }}"
+    DATABASE_URL: "{{ django_database_url }}"
+    STATIC_URL: "{{ django_static_url }}"
+    SECRET_KEY: "{{ django_secret_key }}"
+    INTERCOM_IO_APP_ID: "{{ django_intercom_io_app_id }}"
+    INTERCOM_IO_API_SECRET: "{{ django_intercom_io_api_secret }}"
+    STRIPE_SECRET_KEY: "{{ django_stripe_secret_key }}"
+    STRIPE_PUBLIC_KEY: "{{ django_stripe_public_key }}"
+    GITHUB_APP_ID: "{{ django_github_app_id }}"
+    GITHUB_API_SECRET: "{{ django_github_api_secret }}"
+
+- name: Django migrate
+  django_manage: command=migrate
+                 app_path={{app_code_dir}}
+                 virtualenv={{virtualenv_dir}}
+  environment:
+    DEBUG: "{{ django_debug }}"
+    PRODUCTION_MODE: "{{ django_production_mode }}"
+    DATABASE_URL: "{{ django_database_url }}"
+    STATIC_URL: "{{ django_static_url }}"
+    SECRET_KEY: "{{ django_secret_key }}"
+    INTERCOM_IO_APP_ID: "{{ django_intercom_io_app_id }}"
+    INTERCOM_IO_API_SECRET: "{{ django_intercom_io_api_secret }}"
+    STRIPE_SECRET_KEY: "{{ django_stripe_secret_key }}"
+    STRIPE_PUBLIC_KEY: "{{ django_stripe_public_key }}"
+    GITHUB_APP_ID: "{{ django_github_app_id }}"
+    GITHUB_API_SECRET: "{{ django_github_api_secret }}"
+
+- name: Django loaddata
+  django_manage: command=loaddata
+                 app_path={{app_code_dir}}
+                 virtualenv={{virtualenv_dir}}
+                 fixtures={{app_code_dir}}/core/fixtures/prod.json
+  environment:
+    DEBUG: "{{ django_debug }}"
+    PRODUCTION_MODE: "{{ django_production_mode }}"
+    DATABASE_URL: "{{ django_database_url }}"
+    STATIC_URL: "{{ django_static_url }}"
+    SECRET_KEY: "{{ django_secret_key }}"
+    INTERCOM_IO_APP_ID: "{{ django_intercom_io_app_id }}"
+    INTERCOM_IO_API_SECRET: "{{ django_intercom_io_api_secret }}"
+    STRIPE_SECRET_KEY: "{{ django_stripe_secret_key }}"
+    STRIPE_PUBLIC_KEY: "{{ django_stripe_public_key }}"
+    GITHUB_APP_ID: "{{ django_github_app_id }}"
+    GITHUB_API_SECRET: "{{ django_github_api_secret }}"
+
