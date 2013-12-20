@@ -107,7 +107,7 @@ def deploy(args):
         sudo_pass=sudopass,
         extra_vars=extra_vars,
         private_key_file=options.private_key_file,
-        only_tags=[],
+        only_tags=['all',],
         skip_tags=None,
         check=options.check,
         diff=options.diff
