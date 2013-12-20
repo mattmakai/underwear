@@ -14,10 +14,10 @@ import sys, os
 
 import ansible.playbook
 import ansible.constants as C
+import ansible.utils.template
 from ansible import errors, callbacks, utils
 from ansible.color import ANSIBLE_COLOR, stringc
 from ansible.callbacks import display
-from pkg_resources import resource_string
 
 
 def colorize(lead, num, color):
