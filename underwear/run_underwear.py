@@ -73,7 +73,7 @@ def deploy(args):
 
     extra_vars={}
    
-    playbook = '/home/matt/Envs/t2r/lib/python2.7/site-packages/underwear/django-stack.yml'
+    playbook = '/home/matt/Envs/t2r/lib/python2.7/site-packages/underwear/django-stack.ym'
     inventory.set_playbook_basedir(os.path.dirname(playbook))
     stats = callbacks.AggregateStats()
     playbook_cb = callbacks.PlaybookCallbacks(verbose=utils.VERBOSITY)
