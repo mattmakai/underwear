@@ -111,6 +111,7 @@ def deploy(args):
         pb.run()
 
         hosts = sorted(pb.stats.processed.keys())
+        print hosts
         display(callbacks.banner("PLAY RECAP"))
         playbook_cb.on_stats(pb.stats)
 
