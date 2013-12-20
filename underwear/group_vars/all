@@ -1,0 +1,24 @@
+---
+# variables listed here are applicable to all host groups
+
+# app_name should be a shorthand, lowercase, no spaces version of the
+# application name since this variable will be used as a directory name
+app_name: django_app
+# this might be different than your app name
+django_settings_dir_name: txt2react
+
+# remote repository to pull application code from
+code_repository: ssh://git@github.com/makaimc/txt2react.git
+
+# name of the user created by the Fabric script that Ansible will use to 
+# handle server tasks
+deploy_user: deployer
+
+webserver_ip: 162.216.19.17
+virtualenv_dir: /home/{{deploy_user}}/venvs/{{app_name}}
+app_code_dir: /home/{{deploy_user}}/{{app_name}}
+ssh_dir: /home/{{deploy_user}}/.ssh
+
+# do not include a subdomain
+root_domain_name: txt2react.com
+

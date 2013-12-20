@@ -5,4 +5,5 @@ include LICENSE
 include README.rst
 recursive-include underwear *.yml
 recursive-include underwear/roles *
+recursive-include underwear/group_vars *
 recursive-include underwear/management *

@@ -113,7 +113,6 @@ def deploy(args):
         hosts = sorted(pb.stats.processed.keys())
         display(callbacks.banner("PLAY RECAP"))
         playbook_cb.on_stats(pb.stats)
-        print 'past on_stats'
 
         for h in hosts:
             t = pb.stats.summarize(h)
@@ -159,8 +158,6 @@ def deploy(args):
         print e
         display("ERROR: %s" % e, color='red')
         return 1
-
-    print 'returning 0'
 
     return 0
 
