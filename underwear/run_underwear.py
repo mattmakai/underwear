@@ -71,8 +71,9 @@ def deploy(args):
     options.sudo_user = options.sudo_user or C.DEFAULT_SUDO_USER
 
     extra_vars={}
-    
-    playbook = args[0]
+   
+    from pkg_resources import resource_string
+    playbook = resource_string(__name__, args[0]) 
     inventory.set_playbook_basedir(os.path.dirname(playbook))
     stats = callbacks.AggregateStats()
     playbook_cb = callbacks.PlaybookCallbacks(verbose=utils.VERBOSITY)
