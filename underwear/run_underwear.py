@@ -10,7 +10,7 @@
 #
 ##
 
-import sys, os
+import sys, os, stat
 
 import ansible.playbook
 import ansible.constants as C
@@ -58,6 +58,7 @@ def deploy(args):
 
     inventory = ansible.inventory.Inventory(options.inventory)
     inventory.subset(options.subset)
+    print "number of hosts: %s" % str(len(inventory.list_hosts()))
     if len(inventory.list_hosts()) == 0:
         raise errors.AnsibleError("provided hosts list is empty")
 
@@ -72,6 +73,14 @@ def deploy(args):
     options.sudo_user = options.sudo_user or C.DEFAULT_SUDO_USER
 
     extra_vars={}
+
+    if not os.path.exists(playbook):
+        raise errors.AnsibleError("the playbook: %s could not be found" % \
+            playbook)
+        if not (os.path.isfile(playbook) or \
+            stat.S_ISFIFO(os.stat(playbook).st_mode)):
+            raise errors.AnsibleError( \
+                "the playbook: %s does not appear to be a file" % playbook)
    
     playbook = '/home/matt/Envs/t2r/lib/python2.7/site-packages/underwear/django-stack.yml'
     inventory.set_playbook_basedir(os.path.dirname(playbook))
