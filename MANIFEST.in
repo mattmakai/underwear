@@ -6,4 +6,5 @@ include README.rst
 recursive-include underwear *.yml
 recursive-include underwear/roles *
 recursive-include underwear/group_vars *
+recursive-include underwear/ssh_conf *
 recursive-include underwear/management *
