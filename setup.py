@@ -19,7 +19,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='underwear',
-    version='0.1.0',
+    version='0.2.0',
     description='Automated deployments for Python-powered web applications',
     long_description=readme + '\n\n' + history,
     author='Matt Makai',
@@ -33,19 +33,17 @@ setup(
     install_requires=[
         'ansible',
     ],
-    license="BSD",
+    license="MIT",
     zip_safe=False,
     keywords='underwear',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         "Programming Language :: Python :: 2",
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
     ],
     test_suite='tests',
 )
