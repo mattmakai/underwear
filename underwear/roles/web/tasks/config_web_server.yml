@@ -1,29 +1,40 @@
 ###
 # Configuration for Nginx web server
 #
+# The conditionals need to be cleaned up. This is kind of a hack job
+# when I split the deployment so you didn't have to use SSL.
 ---
 
 - name: check if nginx ssl directory exists
   stat: path=/etc/nginx/{{app_name}}
   register: ssldir
+  when: deploy_ssl is True
 
 - name: create ssl directory for nginx if it does not already exist
   command: mkdir /etc/nginx/{{app_name}}
   sudo: yes
-  when: ssldir.stat.isdir is not defined
+  when: deploy_ssl is True and ssldir.stat.isdir is not defined
 
 - name: write SSL certificate
   template: src=ssl_cert/{{app_name}}.sslchain.crt dest=/etc/nginx/{{app_name}}/{{app_name}}.sslchain.crt
   sudo: yes
+  when: deploy_ssl is True
   
-- name: write nginx configuration
-  template: src=nginx.conf.j2 dest=/etc/nginx/conf.d/{{app_name}}.conf
+- name: write SSL nginx configuration
+  template: src=nginx_ssl.conf.j2 dest=/etc/nginx/conf.d/{{app_name}}.conf
   sudo: yes
+  when: deploy_ssl is True
+
+- name: write non-SSL nginx configuration
+  template: src=nginx_no_ssl.conf.j2 dest=/etc/nginx/conf.d/{{app_name}}.conf
+  sudo: yes
+  when: deploy_ssl is False
 
 - name: write ssl certificate key
   template: src=ssl_cert/{{app_name}}.key 
             dest=/etc/nginx/{{app_name}}/{{app_name}}.key
   sudo: yes
+  when: deploy_ssl is True
 
 - name: check if nginx has default symbolic linked website file
   stat: path=/etc/nginx/sites-enabled/default

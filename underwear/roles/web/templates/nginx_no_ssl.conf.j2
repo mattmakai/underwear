@@ -1,0 +1,29 @@
+upstream app_server_djangoapp {
+  server localhost:8000 fail_timeout=0;
+}
+
+server {
+  listen 80;
+  server_name www.{{root_domain_name}};
+
+  ssl                  off;
+
+  access_log /var/log/nginx/{{root_domain_name}}.access.log;
+  error_log /var/log/nginx/{{root_domain_name}}.error.log info;
+
+  keepalive_timeout 5;
+
+  # path for static files
+  root {{app_code_dir}}/static;
+
+  location / {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+
+    if (!-f $request_filename) {
+      proxy_pass http://app_server_djangoapp;
+      break;
+    }
+  }
+}

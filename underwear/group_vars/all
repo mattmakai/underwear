@@ -22,3 +22,5 @@ ssh_dir: /home/{{deploy_user}}/.ssh
 # do not include a subdomain
 root_domain_name: txt2react.com
 
+# for now, disable SSL
+deploy_ssl: False

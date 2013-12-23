@@ -166,7 +166,6 @@ def deploy(args):
             return 3
 
     except errors.AnsibleError, e:
-        print e
         display("ERROR: %s" % e, color='red')
         return 1
 
