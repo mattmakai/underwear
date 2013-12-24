@@ -51,6 +51,8 @@ def deploy(args):
         diff_opts=True
     )
     options, args = parser.parse_args(args)
+    parser.add_option('-e', '--extra-vars', dest="extra_vars", action="append",
+        help="set additional variables as key=value or YAML/JSON", default=[])
 
     if len(args) == 0:
         parser.print_help(file=sys.stderr)
@@ -73,9 +75,18 @@ def deploy(args):
     options.sudo_user = options.sudo_user or C.DEFAULT_SUDO_USER
 
     extra_vars={}
+    for extra_vars_opt in options.extra_vars:
+        if extra_vars_opt.startswith("@"):
+            # Argument is a YAML file (JSON is a subset of YAML)
+            extra_vars = utils.combine_vars(extra_vars, utils.parse_yaml_from_file(extra_vars_opt[1:]))
+        elif extra_vars_opt and extra_vars_opt[0] in '[{':
+            # Arguments as YAML
+            extra_vars = utils.combine_vars(extra_vars, utils.parse_yaml(extra_vars_opt))
+        else:
+            # Arguments as Key-value
+            extra_vars = utils.combine_vars(extra_vars, utils.parse_kv(extra_vars_opt))
+
     print 'path to yaml extra vars: %s' % args[2][1:]
-    utils.combine_vars(extra_vars, 
-        utils.parse_yaml_from_file(args[2][1:]))
 
     playbook = '/home/matt/Envs/t2r/lib/python2.7/site-packages/underwear/django-stack.yml'
     inventory.set_playbook_basedir(os.path.dirname(playbook))
