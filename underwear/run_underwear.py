@@ -74,7 +74,6 @@ def deploy(args):
         ask_sudo_pass=options.ask_sudo_pass)
     options.sudo_user = options.sudo_user or C.DEFAULT_SUDO_USER
 
-    print "options: " + str(options)
     extra_vars={}
     for extra_vars_opt in options.extra_vars:
         if extra_vars_opt.startswith("@"):
@@ -86,6 +85,7 @@ def deploy(args):
         else:
             # Arguments as Key-value
             extra_vars = utils.combine_vars(extra_vars, utils.parse_kv(extra_vars_opt))
+    print 'extra vars: %s' % str(extra_vars)
 
     playbook = '/home/matt/Envs/t2r/lib/python2.7/site-packages/underwear/django-stack.yml'
     inventory.set_playbook_basedir(os.path.dirname(playbook))
