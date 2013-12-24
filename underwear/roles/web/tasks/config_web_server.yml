@@ -8,7 +8,6 @@
 - name: check if nginx ssl directory exists
   stat: path=/etc/nginx/{{app_name}}
   register: ssldir
-  when: deploy_ssl
 
 - name: create ssl directory for nginx if it does not already exist
   command: mkdir /etc/nginx/{{app_name}}

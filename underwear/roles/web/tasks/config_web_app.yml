@@ -34,68 +34,25 @@
   django_manage: command=collectstatic 
                  app_path={{app_code_dir}}
                  virtualenv={{virtualenv_dir}}
-  environment:
-    DEBUG: "{{ django_debug }}"
-    PRODUCTION_MODE: "{{ django_production_mode }}"
-    DATABASE_URL: "{{ django_database_url }}"
-    STATIC_URL: "{{ django_static_url }}"
-    SECRET_KEY: "{{ django_secret_key }}"
-    INTERCOM_IO_APP_ID: "{{ django_intercom_io_app_id }}"
-    INTERCOM_IO_API_SECRET: "{{ django_intercom_io_api_secret }}"
-    STRIPE_SECRET_KEY: "{{ django_stripe_secret_key }}"
-    STRIPE_PUBLIC_KEY: "{{ django_stripe_public_key }}"
-    GITHUB_APP_ID: "{{ django_github_app_id }}"
-    GITHUB_API_SECRET: "{{ django_github_api_secret }}"
+  environment: django_env_vars
 
 - name: Django syncdb
   django_manage: command=syncdb
                  app_path={{app_code_dir}}
                  virtualenv={{virtualenv_dir}}
-  environment:
-    DEBUG: "{{ django_debug }}"
-    PRODUCTION_MODE: "{{ django_production_mode }}"
-    DATABASE_URL: "{{ django_database_url }}"
-    STATIC_URL: "{{ django_static_url }}"
-    SECRET_KEY: "{{ django_secret_key }}"
-    INTERCOM_IO_APP_ID: "{{ django_intercom_io_app_id }}"
-    INTERCOM_IO_API_SECRET: "{{ django_intercom_io_api_secret }}"
-    STRIPE_SECRET_KEY: "{{ django_stripe_secret_key }}"
-    STRIPE_PUBLIC_KEY: "{{ django_stripe_public_key }}"
-    GITHUB_APP_ID: "{{ django_github_app_id }}"
-    GITHUB_API_SECRET: "{{ django_github_api_secret }}"
+  environment: django_env_vars
+
 
 - name: Django migrate
   django_manage: command=migrate
                  app_path={{app_code_dir}}
                  virtualenv={{virtualenv_dir}}
-  environment:
-    DEBUG: "{{ django_debug }}"
-    PRODUCTION_MODE: "{{ django_production_mode }}"
-    DATABASE_URL: "{{ django_database_url }}"
-    STATIC_URL: "{{ django_static_url }}"
-    SECRET_KEY: "{{ django_secret_key }}"
-    INTERCOM_IO_APP_ID: "{{ django_intercom_io_app_id }}"
-    INTERCOM_IO_API_SECRET: "{{ django_intercom_io_api_secret }}"
-    STRIPE_SECRET_KEY: "{{ django_stripe_secret_key }}"
-    STRIPE_PUBLIC_KEY: "{{ django_stripe_public_key }}"
-    GITHUB_APP_ID: "{{ django_github_app_id }}"
-    GITHUB_API_SECRET: "{{ django_github_api_secret }}"
+  environment: django_env_vars
 
 - name: Django loaddata
   django_manage: command=loaddata
                  app_path={{app_code_dir}}
                  virtualenv={{virtualenv_dir}}
                  fixtures={{app_code_dir}}/core/fixtures/prod.json
-  environment:
-    DEBUG: "{{ django_debug }}"
-    PRODUCTION_MODE: "{{ django_production_mode }}"
-    DATABASE_URL: "{{ django_database_url }}"
-    STATIC_URL: "{{ django_static_url }}"
-    SECRET_KEY: "{{ django_secret_key }}"
-    INTERCOM_IO_APP_ID: "{{ django_intercom_io_app_id }}"
-    INTERCOM_IO_API_SECRET: "{{ django_intercom_io_api_secret }}"
-    STRIPE_SECRET_KEY: "{{ django_stripe_secret_key }}"
-    STRIPE_PUBLIC_KEY: "{{ django_stripe_public_key }}"
-    GITHUB_APP_ID: "{{ django_github_app_id }}"
-    GITHUB_API_SECRET: "{{ django_github_api_secret }}"
+  environment: django_env_vars
 
