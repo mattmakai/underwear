@@ -40,7 +40,6 @@ def hostcolor(host, stats, color=True):
 
 
 def deploy(args):
-    print 'hit deploy function'
     # create parser for CLI options
     parser = utils.base_parser(
         constants=C,
@@ -87,8 +86,6 @@ def deploy(args):
         else:
             # Arguments as Key-value
             extra_vars = utils.combine_vars(extra_vars, utils.parse_kv(extra_vars_opt))
-
-    print 'path to yaml extra vars: %s' % args[2][1:]
 
     playbook = '/home/matt/Envs/t2r/lib/python2.7/site-packages/underwear/django-stack.yml'
     inventory.set_playbook_basedir(os.path.dirname(playbook))
