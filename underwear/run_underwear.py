@@ -87,7 +87,7 @@ def deploy(args):
             # Arguments as Key-value
             extra_vars = utils.combine_vars(extra_vars, utils.parse_kv(extra_vars_opt))
 
-    playbook = underwear.__path__ + '/django-stack.yml'
+    playbook = underwear.__path__[0] + '/django-stack.yml'
     inventory.set_playbook_basedir(os.path.dirname(playbook))
     stats = callbacks.AggregateStats()
     playbook_cb = callbacks.PlaybookCallbacks(verbose=utils.VERBOSITY)
