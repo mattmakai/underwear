@@ -14,5 +14,5 @@ class Command(BaseCommand):
         else:
             deploy(['django-stack.yml', '-i', args[0], '-K', '-u', 
                 'deployer', '--private-key=%s' % args[1], 
-                '--extra-vars', '@%s' % args[2]])
+                '--extra-vars', '"@%s"' % args[2]])
             self.stdout.write('App successfully deployed to server.')
