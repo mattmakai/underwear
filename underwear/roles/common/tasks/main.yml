@@ -5,4 +5,3 @@
 - name: install fail2ban for security purposes
   apt: pkg=fail2ban state=latest
   sudo: yes
-  when: deploy_ssl
