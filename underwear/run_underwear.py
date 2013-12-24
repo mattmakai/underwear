@@ -40,6 +40,7 @@ def hostcolor(host, stats, color=True):
 
 
 def deploy(args):
+    print 'hit deploy function'
     # create parser for CLI options
     parser = utils.base_parser(
         constants=C,
