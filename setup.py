@@ -19,7 +19,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='underwear',
-    version='0.2.1',
+    version='0.3.0',
     description='Automated deployments for Python-powered web applications',
     long_description=readme + '\n\n' + history,
     author='Matt Makai',
@@ -37,7 +37,7 @@ setup(
     zip_safe=False,
     keywords='underwear',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
