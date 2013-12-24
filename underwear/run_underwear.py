@@ -73,6 +73,9 @@ def deploy(args):
     options.sudo_user = options.sudo_user or C.DEFAULT_SUDO_USER
 
     extra_vars={}
+    print 'path to yaml extra vars: %s' % args[2][1:]
+    utils.combine_vars(extra_vars, 
+        utils.parse_yaml_from_file(args[2][1:]))
 
     playbook = '/home/matt/Envs/t2r/lib/python2.7/site-packages/underwear/django-stack.yml'
     inventory.set_playbook_basedir(os.path.dirname(playbook))

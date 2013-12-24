@@ -3,16 +3,3 @@
 
 httpd_port: 80
 
-# this part is so much suckage... how do I load lists of variables?
-django_debug: False
-django_production_mode: True
-django_database_url: 'postgres://deployer@96.126.104.26:5432/t2r'
-django_static_url: '/static/'
-django_secret_key: '123'
-django_intercom_io_app_id: ''
-django_intercom_io_api_secret: ''
-django_stripe_secret_key: ''
-django_stripe_public_key: ''
-django_github_app_id: ''
-django_github_api_secret: ''
-
