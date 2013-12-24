@@ -10,7 +10,7 @@ Tests for `underwear` module.
 
 import unittest
 
-from underwear import underwear
+from underwear import run_underwear
 
 
 class TestUnderwear(unittest.TestCase):
