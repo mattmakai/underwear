@@ -74,6 +74,7 @@ def deploy(args):
         ask_sudo_pass=options.ask_sudo_pass)
     options.sudo_user = options.sudo_user or C.DEFAULT_SUDO_USER
 
+    print "options: " + str(options)
     extra_vars={}
     for extra_vars_opt in options.extra_vars:
         if extra_vars_opt.startswith("@"):
