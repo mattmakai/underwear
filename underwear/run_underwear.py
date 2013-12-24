@@ -19,6 +19,7 @@ from ansible import errors, callbacks, utils
 from ansible.color import ANSIBLE_COLOR, stringc
 from ansible.callbacks import display
 
+import underwear
 
 def colorize(lead, num, color):
     """ Print 'lead' = 'num' in 'color' """
@@ -86,7 +87,7 @@ def deploy(args):
             # Arguments as Key-value
             extra_vars = utils.combine_vars(extra_vars, utils.parse_kv(extra_vars_opt))
 
-    playbook = '/home/matt/Envs/t2r/lib/python2.7/site-packages/underwear/django-stack.yml'
+    playbook = underwear.__path__ + '/django-stack.yml'
     inventory.set_playbook_basedir(os.path.dirname(playbook))
     stats = callbacks.AggregateStats()
     playbook_cb = callbacks.PlaybookCallbacks(verbose=utils.VERBOSITY)
