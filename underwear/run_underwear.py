@@ -51,9 +51,9 @@ def deploy(args):
         check_opts=True,
         diff_opts=True
     )
-    options, args = parser.parse_args(args)
     parser.add_option('-e', '--extra-vars', dest="extra_vars", action="append",
         help="set additional variables as key=value or YAML/JSON", default=[])
+    options, args = parser.parse_args(args)
 
     if len(args) == 0:
         parser.print_help(file=sys.stderr)
