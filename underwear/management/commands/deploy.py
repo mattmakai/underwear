@@ -9,10 +9,12 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         if len(args) < 3:
-            print "Usage: manage.py deploy [hosts file location] " + \
-                "[private key path and filename] [custom app variables]\n"
+            deploy(['django-stack.yml', '-i', './deploy/hosts', '-K', '-u', 
+                'deployer', '--private-key=%s' % '~/.ssh/id_rsa', 
+                '--extra-vars', '@%s' % './deploy/underwear.yml'])
+        #    print "Usage: manage.py deploy [hosts file location] " + \
+        #        "[private key path and filename] [custom app variables]\n"
         else:
-            print 'args[2]: %s' % args[2]
             deploy(['django-stack.yml', '-i', args[0], '-K', '-u', 
                 'deployer', '--private-key=%s' % args[1], 
                 '--extra-vars', '@%s' % args[2]])
