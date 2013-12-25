@@ -1,0 +1,55 @@
+---
+# Configurable settings for Underwear. Settings that must be changed are
+# listed first. Optional ones are listed below in a separate "optional"
+# section.
+#
+##
+
+# app_name should be a shorthand, lowercase, no spaces version of the
+# application name since this variable will be used as a directory name
+app_name: django_app
+
+# Django project settings directory, which might be different than your
+# app name. for example, txt2react 
+django_settings_dir_name: 
+
+# remote git repository to pull application code from, for example:
+# ssh://git@github.com/makaimc/txt2react.git
+code_repository: 
+
+# name of the user created by the Fabric script that Ansible will use to 
+# handle server tasks
+deploy_user: deployer
+
+# this will be removed in a future version once I pull it directly
+# from ansible's environment variables
+webserver_ip: 162.216.19.17
+
+# server directory for the virtualenv that will be created to run the web app
+virtualenv_dir: /home/{{deploy_user}}/venvs/{{app_name}}
+
+# server directory to put the code into that is pulled from the code 
+# repository
+app_code_dir: /home/{{deploy_user}}/{{app_name}}
+
+# local directory where public & private deployment ssh keys and 
+# authorized_keys are located
+ssh_dir: /home/{{deploy_user}}/.ssh
+
+# root domain name the server should run as. do not include a subdomain,
+# for example, txt2react.com
+root_domain_name: 
+
+# for now, disable SSL (deploying with SSL works but need to update scripts
+# to use it)
+deploy_ssl: false
+
+# all environment variables for your app should be included below so
+# that Django's manage.py command can run properly
+django_env_vars: {
+    DEBUG: True,
+    DATABASE_URL: '', # ex: postgres://deployer@127.0.0.1:5432/dbname'
+    STATIC_URL: '/static/',
+    SECRET_KEY: '',
+}
+
