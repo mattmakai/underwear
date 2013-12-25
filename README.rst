@@ -15,10 +15,6 @@ Underwear
 Underwear is a library for easily deploying any Python-powered web 
 application to one or more Linux servers.
 
-Underwear is free software under the MIT license. Additional documentation
-can be found on the `Underwear Read the Docs <http://underwear.rtfd.org>`_ 
-page.
-
 
 What Problem Does Underwear Solve?
 ----------------------------------
@@ -94,6 +90,14 @@ is further developed*.
 
 10. Access your application from the domain name you provided in the 
     underwear.yml file.
+
+
+License and Documentation
+-------------------------
+Underwear is free software under the MIT license. 
+
+Additional Underwear documentation can be found on 
+`Read the Docs <http://underwear.rtfd.org>`_.
 
 
 Features
