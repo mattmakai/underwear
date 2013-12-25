@@ -39,6 +39,9 @@ IP addresses of the server(s) to deploy to, then running a couple of commands.
 
 Quick Start
 -----------
+At the end of these steps your app should be completely configured, secured,
+and deployed to remote servers. 
+
 *These instructions will be simplied in future releases as the library
 is further developed*.
 
