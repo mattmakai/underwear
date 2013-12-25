@@ -39,8 +39,8 @@ IP addresses of the server(s) to deploy to, then running a couple of commands.
 
 Quick Start
 -----------
-At the end of these steps your app should be completely configured, secured,
-and deployed to remote servers. 
+At the end of these ten steps your app should be completely configured, 
+secured, and deployed to remote servers. 
 
 *These instructions will be simplied in future releases as the library
 is further developed*.
@@ -62,20 +62,38 @@ is further developed*.
 4. Download the Fabric file for uploading SSH keys, configuration template, 
    and hosts file to your project under the deploy/ directory::
 
-     wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/fabfile.py.template
-     wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/hosts
+     wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/fabfile.py
      wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/underwear.yml
+     wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/hosts
 
-5. Fill in the **hosts** file with your servers' IP addresses. For example,
+5. Fill in blank variables fields in **fabfile.py**.
+
+6. Execute the Fabric script (the script will prompt you for the non-root 
+   password)::
+    
+     fab bootstrap_ansible
+
+7. Fill in blank fields and modify desired settings in the **underwear.yml**
+   file so that Underwear knows where to install your web application.
+
+8. Fill in the **hosts** file with your servers' IP addresses. For example,
    the file may look like the following::
-
+    
     [webservers]
     192.168.1.1
 
     [dbservers]
     192.168.1.2
 
-6. 
+8. Deploy your application::
+
+    python manage.py deploy
+
+9. Underwear will output each step in the deployment process to standard
+   output as it happens.
+
+10. Access your application from the domain name you provided in the 
+    underwear.yml file.
 
 
 Features
