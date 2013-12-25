@@ -51,12 +51,29 @@ is further developed*.
    project. *Underwear currently only supports Django (Flask and Bottle 
    will be added in the 0.5 release).* 
 
-3. Add the deployment template and hosts file to your project under the
-   deploy/ directory::
+3. Create a deploy directory under your Django project::
+
+     mkdir deploy; cd deploy
+
+
+4. Download the Fabric file for uploading SSH keys, configuration template, 
+   and hosts file to your project under the deploy/ directory::
 
      wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/fabfile.py.template
      wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/hosts
      wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/underwear.yml
+
+5. Fill in the **hosts** file with your servers' IP addresses. For example,
+   the file may look like the following::
+
+    [webservers]
+    192.168.1.1
+
+    [dbservers]
+    192.168.1.2
+
+6. 
+
 
 Features
 --------
