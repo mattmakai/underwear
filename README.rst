@@ -27,15 +27,31 @@ Despite the advent of configuration management tools such as
 `Chef <http://www.getchef.com/chef/>`_, 
 `Ansible <http://www.ansibleworks.com/>`_, and 
 `Salt <http://www.saltstack.com/community/>`_, it remains difficult to deploy
-a new web application because you have to first learn one of those tools and
+a web application because you have to first learn one of those tools and
 then write scripts in the tool's domain-specific language.
 
-Underwear aims to eliminate the need to learn one of the tools and write
-the scripts by providing a pre-packaged, simple configurable library. 
+Underwear makes deploying to a traditional Linux server stack as easy as 
+deploying to Heroku by providing a pre-packaged, easily configurable library. 
 Deployments can be executed simply by installing Underwear with 
 `pip <http://www.pip-installer.org/en/latest/index.html>`_, specifying the
-IP addresses of the server(s) to deploy to, then running a single command.
+IP addresses of the server(s) to deploy to, then running a couple of commands.
 
+Quick Start
+-----------
+* Note: these instructions will be simplied in future releases as the library
+  is built out
+
+1. Install the library to your 
+   `virtualenv <https://pypi.python.org/pypi/virtualenv>`_ 
+   (Underwear's dependencies will automatically be installed)::
+
+     pip install underwear
+
+2. Underwear currently only supports Django (Flask and Bottle will be added in
+   the 0.5 release). 
+   
+   Add 'underwear' to your INSTALLED_APPS in your Django
+   project.
 
 Features
 --------
