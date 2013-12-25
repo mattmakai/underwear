@@ -28,7 +28,7 @@ Despite the advent of configuration management tools such as
 `Ansible <http://www.ansibleworks.com/>`_, and 
 `Salt <http://www.saltstack.com/community/>`_, it remains difficult to deploy
 a new web application because you have to first learn one of those tools and
-write scripts in the tool's domain-specific language.
+then write scripts in the tool's domain-specific language.
 
 Underwear aims to eliminate the need to learn one of the tools and write
 the scripts by providing a pre-packaged, simple configurable library. 
