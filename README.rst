@@ -54,7 +54,9 @@ is further developed*.
 3. Add the deployment template and hosts file to your project under the
    deploy/ directory::
 
-     wget https://github.com/makaimc/underwear/
+     wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/fabfile.py.template
+     wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/hosts
+     wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/underwear.yml
 
 Features
 --------
