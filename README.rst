@@ -36,6 +36,7 @@ Deployments can be executed simply by installing Underwear with
 `pip <http://www.pip-installer.org/en/latest/index.html>`_, specifying the
 IP addresses of the server(s) to deploy to, then running a couple of commands.
 
+
 Quick Start
 -----------
 *These instructions will be simplied in future releases as the library
@@ -46,11 +47,10 @@ is further developed*.
 
      pip install underwear
 
-2. Underwear currently only supports Django (Flask and Bottle will be added in
-   the 0.5 release). 
-   
-   Add 'underwear' to your INSTALLED_APPS in your Django
-   project.
+2. Add 'underwear' to your INSTALLED_APPS in your Django
+   project. *Underwear currently only supports Django (Flask and Bottle 
+   will be added in the 0.5 release).* 
+
 
 Features
 --------
