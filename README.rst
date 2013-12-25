@@ -12,8 +12,8 @@ Underwear
         :target: https://crate.io/packages/underwear?version=latest
 
 
-Underwear is a simple, two-command installation library for deploying any
-Python-powered web application to one or more Linux servers.
+Underwear is a library for easily deploying any Python-powered web 
+application to one or more Linux servers.
 
 Underwear is free software under the MIT license. Additional documentation
 can be found on the `Underwear Read the Docs <http://underwear.rtfd.org>`_ 
@@ -47,10 +47,14 @@ is further developed*.
 
      pip install underwear
 
-2. Add 'underwear' to your INSTALLED_APPS in your Django
+2. Add 'underwear' to INSTALLED_APPS in your Django
    project. *Underwear currently only supports Django (Flask and Bottle 
    will be added in the 0.5 release).* 
 
+3. Add the deployment template and hosts file to your project under the
+   deploy/ directory::
+
+     wget https://github.com/makaimc/underwear/
 
 Features
 --------
