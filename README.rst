@@ -41,9 +41,8 @@ Quick Start
 *These instructions will be simplied in future releases as the library
 is further developed*.
 
-1. Install the library to your 
-   `virtualenv <https://pypi.python.org/pypi/virtualenv>`_ 
-   (Underwear's dependencies will automatically be installed)::
+1. Install Underwear to your 
+   `virtualenv <https://pypi.python.org/pypi/virtualenv>`_:: 
 
      pip install underwear
 
