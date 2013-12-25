@@ -38,8 +38,8 @@ IP addresses of the server(s) to deploy to, then running a couple of commands.
 
 Quick Start
 -----------
-* Note: these instructions will be simplied in future releases as the library
-  is built out
+*Note*: these instructions will be simplied in future releases as the library
+is further developed.
 
 1. Install the library to your 
    `virtualenv <https://pypi.python.org/pypi/virtualenv>`_ 
