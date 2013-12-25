@@ -55,8 +55,8 @@ is further developed*.
      mkdir deploy; cd deploy
 
 
-4. Download the Fabric file for uploading SSH keys, configuration template, 
-   and hosts file to your project under the deploy/ directory::
+4. Download the Fabric file for uploading SSH keys, YAML configuration 
+   template, and hosts file to your project under the deploy/ directory::
 
      wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/fabfile.py
      wget https://raw.github.com/makaimc/underwear/master/underwear/deploy/underwear.yml
