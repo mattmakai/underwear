@@ -13,8 +13,11 @@ server {
 
   keepalive_timeout 5;
 
-  # path for static files
-  root {{app_code_dir}}/static;
+  # nginx should serve up static files and never send to the WSGI server
+  location /static {
+    autoindex on; 
+    alias {{app_code_dir}}/assets;
+  }
 
   location / {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
