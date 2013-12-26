@@ -92,8 +92,10 @@ local   all             all                                     peer
 host    all             all             127.0.0.1/32            md5
 # IPv6 local connections:
 host    all             all             ::1/128                 md5
-# eventually replace this with dynamic ip address for web
-host    {{dbname}}             {{dbuser}}     {{webserver_ip}}/32     trust
+# only allow access from web servers
+{% for host in groups['webservers'] %}
+host    {{dbname}}             {{dbuser}}     {{ hostvars[host]['ansible_eth0']['ipv4']['address'] }}/32     trust
+{% endfor %}
 # Allow replication connections from localhost, by a user with the
 # replication privilege.
 #local   replication     postgres                                peer

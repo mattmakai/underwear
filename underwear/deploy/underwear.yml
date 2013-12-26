@@ -21,10 +21,6 @@ code_repository:
 # handle server tasks
 deploy_user: deployer
 
-# this will be removed in a future version once I pull it directly
-# from ansible's environment variables
-webserver_ip: 162.216.19.17
-
 # server directory for the virtualenv that will be created to run the web app
 virtualenv_dir: /home/{{deploy_user}}/venvs/{{app_name}}
 

@@ -19,8 +19,9 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='underwear',
-    version='0.3.0',
-    description='Automated deployments for Python-powered web applications',
+    version='0.4.0',
+    description='Dead simple LAMP-stack deployments for Python-' + \
+                'powered web applications',
     long_description=readme + '\n\n' + history,
     author='Matt Makai',
     author_email='matthew.makai@gmail.com',
