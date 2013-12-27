@@ -25,14 +25,15 @@ env.hosts = ['','']
 env.new_user_full_name = '' # ex: Matt Makai
 
 # username for the new non-root user to be created
-env.new_user = 'deploy' # ex: deploy
+env.new_user = 'deployer' # ex: deployer
 
 # group name for the new non-root user to be created
-env.new_user_grp = 'deploy' # ex: deploy
+env.new_user_grp = 'deployers' # ex: deployers
 
 # local filesystem directory where your id_rsa, id_rsa.pub, and
 # authorized_keys2 files are located (they will be scp'd to target hosts)
-env.ssh_key_dir = '' # ex: '~/devel/py/deploy-django/ssh_conf/'
+# do not include a trailing slash
+env.ssh_key_dir = '' # ex: '~/devel/py/deploy-django/ssh_conf'
 
 """
     The following functions should not need to be modified to complete the
@@ -71,7 +72,7 @@ def _create_privileged_user():
         env.new_user))
 
 def _upload_keys(username):
-    local('scp ' + env.ssh_key_dir + 'id_rsa ' + env.ssh_key_dir + \
-        'id_rsa.pub ' + env.ssh_key_dir + 'authorized_keys2 ' + \
+    local('scp ' + env.ssh_key_dir + '/id_rsa ' + env.ssh_key_dir + \
+        '/id_rsa.pub ' + env.ssh_key_dir + '/authorized_keys2 ' + \
         username + '@' + env.host_string + ':~/.ssh')
 
