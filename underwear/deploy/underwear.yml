@@ -40,6 +40,13 @@ root_domain_name:
 # to use it)
 deploy_ssl: false
 
+# local directory for web server SSL files. this variable can be left blank if
+# the above "deploy_ssl" is set to false. if "deploy_ssl" is set to true,
+# this variable must point to the directory where previously generated SSL 
+# certification files in the naming format of "app_name".key and 
+# "app_name".sslchain.crt are stored 
+ssl_certs_dir:
+
 # all environment variables for your app should be included below so
 # that Django's manage.py command can run properly
 django_env_vars: {
