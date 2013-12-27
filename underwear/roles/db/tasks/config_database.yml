@@ -12,7 +12,8 @@
 - name: ensure user has access to database
   sudo: yes
   sudo_user: postgres
-  postgresql_user: db={{dbname}} user={{dbuser}} password={{dbpassword}} priv=ALL
+  postgresql_user: db={{dbname}} user={{dbuser}} 
+                   password={{ db_password }} priv=ALL
 
 - name: ensure new user does not have unnecessary privileges
   sudo: yes

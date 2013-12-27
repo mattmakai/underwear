@@ -47,6 +47,11 @@ deploy_ssl: false
 # "app_name".sslchain.crt are stored 
 ssl_certs_dir:
 
+# password for the database user, which by default is set to the same username
+# as the "deploy_user" variable. the database name is set to the "app_name"
+# variable
+db_password: 
+
 # all environment variables for your app should be included below so
 # that Django's manage.py command can run properly
 django_env_vars: {
