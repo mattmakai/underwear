@@ -7,4 +7,3 @@ build
 *.db
 *.log
 _build
-fabfile.py
