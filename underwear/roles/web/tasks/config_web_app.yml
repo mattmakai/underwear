@@ -5,7 +5,8 @@
 ---
 
 - name: install known_hosts file to access GitHub
-  copy: src=ssh_conf/known_hosts dest={{ssh_dir}}/known_hosts
+  copy: src={{ ssh_dir }}/known_hosts 
+        dest=/home/{{ deploy_user }}/.ssh
 
 - name: checkout latest web app code
   git: repo={{code_repository}} dest={{app_code_dir}}
