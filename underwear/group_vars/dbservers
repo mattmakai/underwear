@@ -1,8 +1,8 @@
 # database parameters
-dbname: {{ app_name }}
+dbname: "{{ app_name }}"
 
 # database 
-dbuser: {{ deploy_user }}
+dbuser: "{{ deploy_user }}"
 
 # for future implementation, may allow other database types to be installed
 database_type: postgresql
