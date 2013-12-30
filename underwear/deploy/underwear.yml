@@ -9,8 +9,13 @@
 # application name since this variable will be used as a directory name
 app_name: django_app
 
+# WSGI framework that the application was built with and should be deployed.
+# current choices are django, flask, bottle, and pyramid
+wsgi_framework: django
+
 # Django project settings directory, which might be different than your
-# app name. for example, txt2react 
+# app name. not necessary for frameworks other than Django. 
+# Example value: txt2react 
 django_settings_dir_name: 
 
 # remote git repository to pull application code from, for example:

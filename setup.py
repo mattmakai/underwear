@@ -19,7 +19,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='underwear',
-    version='0.4.1',
+    version='0.4.2',
     description='Dead simple LAMP-stack deployments for Python-' + \
                 'powered web applications',
     long_description=readme + '\n\n' + history,
@@ -36,7 +36,7 @@ setup(
     ],
     license="MIT",
     zip_safe=False,
-    keywords='underwear',
+    keywords=['underwear', 'deployment', 'LAMP', 'WSGI'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
