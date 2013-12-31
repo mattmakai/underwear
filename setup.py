@@ -36,7 +36,8 @@ setup(
     ],
     license="MIT",
     zip_safe=False,
-    keywords='underwear deployment django LAMP WSGI ansible',
+    keywords=['underwear', 'deployment', 'django', 'LAMP', 
+              'WSGI', 'ansible'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
