@@ -16,6 +16,7 @@ Contents:
    usage
    contributing
    authors
+   roadmap
    history
 
 Indices and tables
