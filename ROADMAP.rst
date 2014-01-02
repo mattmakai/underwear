@@ -16,5 +16,6 @@ This document proposes how Underwear will evolve over the course of 2014.
 
 0.4.3
 +++++
-* Add new flags to configure how a Django app should be deployed.
+* Add flags to configure how a Django app should be deployed.
+* Add new parser for command line options
 
