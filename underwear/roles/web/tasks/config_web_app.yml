@@ -49,11 +49,13 @@
                  app_path={{app_code_dir}}
                  virtualenv={{virtualenv_dir}}
   environment: django_env_vars
+  when: django_use_south
 
 - name: Django loaddata
   django_manage: command=loaddata
                  app_path={{app_code_dir}}
                  virtualenv={{virtualenv_dir}}
-                 fixtures={{app_code_dir}}/core/fixtures/prod.json
+                 fixtures={{app_code_dir}}/{{ django_fixtures_file }}
   environment: django_env_vars
+  when: django_fixtures_file is defined and django_fixtures_file is not ""
 

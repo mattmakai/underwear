@@ -57,6 +57,15 @@ ssl_certs_dir:
 # variable
 db_password: 
 
+# if you want to load a fixtures file (other than initial_data.json if you
+# have one in your Django project), put the file here. Leave blank to not
+# load a fixture file. Example: with an app called core, 
+# put core/fixtures/prod.json
+django_fixtures_file: 
+
+# toggles whether or not South should be used for migrations
+django_use_south: true
+
 # all environment variables for your app should be included below so
 # that Django's manage.py command can run properly
 django_env_vars: {

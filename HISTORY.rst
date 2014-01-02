@@ -3,6 +3,19 @@
 History
 -------
 
+0.4.3 (2014-01-02)
+++++++++++++++++++
+* Adding toggle for whether South should be used with a Django project 
+  (django_use_south) and a toggle for whether a fixtures file should be
+  loaded (django_fixtures_file).
+
+
+0.4.2 (2013-12-30)
+++++++++++++++++++
+* Added toggle to flip whether or not SSL should be used with Nginx 
+  (deploy_ssl).
+
+
 0.4.0 (2013-12-26)
 ++++++++++++++++++
 * Release now allows for 2 server web app deployments (one web server and
