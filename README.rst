@@ -100,6 +100,17 @@ Additional Underwear documentation can be found on
 `Read the Docs <http://underwear.rtfd.org>`_.
 
 
+About the Name "Underwear"
+--------------------------
+This library goes underneath your WSGI application to help you quickly deploy
+it to traditional servers. Otherwise no one knows you're using it, and you
+can swap it out at any time for another deployment process when you outgrow
+the standard LAMP-stack setup.
+
+There also weren't any projects on GitHub by the name of underwear that had
+more than two stars and "underwear" was an open library name on PyPi :)
+
+
 Features
 --------
 * Automated deployments to a web & database server
