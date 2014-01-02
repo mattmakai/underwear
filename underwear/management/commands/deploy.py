@@ -12,10 +12,7 @@ class Command(BaseCommand):
             deploy(['django-stack.yml', '-i', './deploy/hosts', '-K', '-u', 
                 'deployer', '--private-key=%s' % '~/.ssh/id_rsa', 
                 '--extra-vars', '@%s' % './deploy/underwear.yml'])
-        #    print "Usage: manage.py deploy [hosts file location] " + \
-        #        "[private key path and filename] [custom app variables]\n"
         else:
             deploy(['django-stack.yml', '-i', args[0], '-K', '-u', 
                 'deployer', '--private-key=%s' % args[1], 
                 '--extra-vars', '@%s' % args[2]])
-            self.stdout.write('App successfully deployed to server.')
