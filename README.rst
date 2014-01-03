@@ -8,9 +8,6 @@ Underwear
 .. image:: https://travis-ci.org/makaimc/underwear.png?branch=master
         :target: https://travis-ci.org/makaimc/underwear
 
-.. image:: https://pypip.in/d/underwear/badge.png
-        :target: https://crate.io/packages/underwear?version=latest
-
 
 Underwear is a library for easily deploying any Python-powered web 
 application to one or more Linux servers.
