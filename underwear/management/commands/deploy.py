@@ -10,7 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if len(args) < 3:
             deploy(['django-stack.yml', '-i', './deploy/hosts', '-K', '-u', 
-                'deployer', '--private-key=%s' % '~/.ssh/id_rsa', 
+                'deployer', '--private-key=%s' % './deploy/ssh_conf/id_rsa', 
                 '--extra-vars', '@%s' % './deploy/underwear.yml'])
         else:
             deploy(['django-stack.yml', '-i', args[0], '-K', '-u', 

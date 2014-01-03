@@ -3,6 +3,12 @@
 History
 -------
 
+0.4.4 (2014-01-05)
+++++++++++++++++++
+* Changing Django management command defaults to deploy directory within the
+  project instead of your ~/.ssh key directory.
+
+
 0.4.3 (2014-01-02)
 ++++++++++++++++++
 * Adding toggle for whether South should be used with a Django project 
