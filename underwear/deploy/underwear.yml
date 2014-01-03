@@ -1,22 +1,15 @@
 ---
 # Configurable settings for Underwear. Settings that must be changed are
-# listed first. Optional ones are listed below in a separate "optional"
-# section.
+# listed first. Not all variables need to be filled in. For example, when
+# deploying a Flask app, all the django_ prefixed variables can be left
+# empty.
 #
 ##
 
-# app_name should be a shorthand, lowercase, no spaces version of the
-# application name since this variable will be used as a directory name
-app_name: django_app
-
 # WSGI framework that the application was built with and should be deployed.
-# current choices are django, flask, bottle, and pyramid
+# Currently only django is supported. Future Underwear versions will include
+# flask, bottle, and pyramid.
 wsgi_framework: django
-
-# Django project settings directory, which might be different than your
-# app name. not necessary for frameworks other than Django. 
-# Example value: txt2react 
-django_settings_dir_name: 
 
 # remote git repository to pull application code from, for example:
 # ssh://git@github.com/makaimc/txt2react.git
@@ -26,11 +19,12 @@ code_repository:
 # handle server tasks
 deploy_user: deployer
 
-# server directory for the virtualenv that will be created to run the web app
+# server directory for the virtualenv that will be created to run the web app.
+# you can leave this setting as is unless you want a different directory
 virtualenv_dir: /home/{{deploy_user}}/venvs/{{app_name}}
 
 # server directory to put the code into that is pulled from the code 
-# repository
+# repository. leave this setting alone unless you want a different directory.
 app_code_dir: /home/{{deploy_user}}/{{app_name}}
 
 # local directory where public & private deployment ssh keys and 
@@ -57,14 +51,28 @@ ssl_certs_dir:
 # variable
 db_password: 
 
+################################################
+####### Django specific settings below #########
+################################################
+
+# Django project settings directory, which might be different than your
+# app name. not necessary for frameworks other than Django. 
+# Example value: txt2react 
+django_settings_dir_name: 
+
+# toggles whether or not South should be used for migrations (will run
+# "python manage.py migrate" before loading any fixtures
+django_use_south: true
+
 # if you want to load a fixtures file (other than initial_data.json if you
 # have one in your Django project), put the file here. Leave blank to not
 # load a fixture file. Example: with an app called core, 
 # put core/fixtures/prod.json
 django_fixtures_file: 
 
-# toggles whether or not South should be used for migrations
-django_use_south: true
+# app_name should be a shorthand, lowercase, no spaces version of the
+# application name since this variable will be used as a directory name
+app_name: django_app
 
 # all environment variables for your app should be included below so
 # that Django's manage.py command can run properly
