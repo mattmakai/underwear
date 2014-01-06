@@ -1,0 +1,7 @@
+##
+# uploads specified public/private keys to the remote servers, then locks
+# down direct root ssh access
+---
+
+- include: create_deployer_user.yml
+

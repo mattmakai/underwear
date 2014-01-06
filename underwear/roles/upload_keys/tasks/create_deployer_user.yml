@@ -1,0 +1,13 @@
+###
+# Creates the deployer user and a deployers group that will handle future
+# deployments.
+---
+
+- name: create deploy group
+  group: name={{ deploy_group }} state=present
+
+- name: create deploy user
+  user: name={{ deploy_user }} group={{ deploy_group }} state=present  
+
+
+  

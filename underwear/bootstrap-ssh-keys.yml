@@ -1,0 +1,11 @@
+---
+# This playbook bootstraps the key uploading process necessary to make
+# Ansible work over public and private key authorization.
+
+- name: apply common configuration to all nodes
+  hosts: all
+  user: root
+  sudo: yes
+
+  roles:
+    - upload_keys

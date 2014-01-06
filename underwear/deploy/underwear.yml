@@ -6,6 +6,21 @@
 #
 ##
 
+################################################
+####### System level settings ##################
+################################################
+# user name to create on all remote systems to handle deployment tasks
+# as of 0.4.4, it is recommended you do not change this setting
+deploy_user: deployer
+
+# group name for the deploy users 
+deploy_group: deployers
+
+
+################################################
+####### Settings common to all WSGI apps #######
+################################################
+
 # WSGI framework that the application was built with and should be deployed.
 # Currently only django is supported. Future Underwear versions will include
 # flask, bottle, and pyramid.
@@ -14,10 +29,6 @@ wsgi_framework: django
 # remote git repository to pull application code from, for example:
 # ssh://git@github.com/makaimc/txt2react.git
 code_repository: 
-
-# name of the user created by the Fabric script that Ansible will use to 
-# handle server tasks
-deploy_user: deployer
 
 # server directory for the virtualenv that will be created to run the web app.
 # you can leave this setting as is unless you want a different directory
