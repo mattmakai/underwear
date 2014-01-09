@@ -10,7 +10,9 @@ Underwear
 
 
 Underwear is a library for easily deploying any Python-powered web 
-application to one or more Linux servers.
+application to one or more Linux servers. Underwear is configurable by
+a YAML template and takes care of installing packages, configuring web/WSGI
+servers, and securing the server.
 
 
 What Problem Does Underwear Solve?
