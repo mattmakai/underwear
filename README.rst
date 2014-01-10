@@ -112,7 +112,8 @@ more than two stars and "underwear" was an open library name on PyPi :)
 
 Features
 --------
-* Automated deployments to a web & database server
+* Automated WSGI application deployments to a web & database server
 * Configurable via a simple YAML template
+* Support for ad hoc deployment needs without SSH-ing into remote servers
 
 
