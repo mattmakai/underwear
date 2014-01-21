@@ -8,12 +8,20 @@
   apt: update_cache=yes
   sudo: yes 
 
-- name: ensure database packages are installed
+- name: ensure postgresql database packages are installed
   apt: name={{item}}
   sudo: yes 
   with_items:
     - postgresql
     - libpq-dev
     - python-psycopg2
+  when: db_backend is 'postgresql'
 
-
+- name: ensure mysql database packages are installed
+  apt: name={{item}}
+  sudo: yes 
+  with_items:
+    - mysql-server
+    - libmysqlclient-dev
+    - python-mysqldb
+  when: db_backend is 'mysql'

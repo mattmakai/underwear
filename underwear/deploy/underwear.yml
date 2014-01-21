@@ -57,6 +57,14 @@ deploy_ssl: false
 # "app_name".sslchain.crt are stored 
 ssl_certs_dir:
 
+################################################
+####### Database configuration below ###########
+################################################
+
+# what database type to install and configure on the backend. choices
+# are currently postgresql and mysql
+db_backend: postgresql
+
 # password for the database user, which by default is set to the same username
 # as the "deploy_user" variable. the database name is set to the "app_name"
 # variable

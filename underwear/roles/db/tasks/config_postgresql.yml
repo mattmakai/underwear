@@ -1,0 +1,31 @@
+###
+# configures a new database, new database user, and sets up access privileges
+# for an external server to connect
+#
+---
+
+- name: ensure database is created
+  sudo: yes
+  sudo_user: postgres
+  postgresql_db: db={{dbname}}
+
+- name: ensure user has access to database
+  sudo: yes
+  sudo_user: postgres
+  postgresql_user: db={{dbname}} user={{dbuser}} 
+                   password={{ db_password }} priv=ALL
+
+- name: ensure new user does not have unnecessary privileges
+  sudo: yes
+  sudo_user: postgres
+  postgresql_user: user={{dbuser}} role_attr_flags=NOSUPERUSER
+
+- name: update postgres access and listen for external hosts
+  sudo: yes
+  template: src=pg_hba.conf.j2 dest=/etc/postgresql/9.1/main/pg_hba.conf
+
+- name: update postgres configuration
+  sudo: yes
+  template: src=postgresql.conf.j2 dest=/etc/postgresql/9.1/main/postgresql.conf
+  notify:
+    - restart postgresql

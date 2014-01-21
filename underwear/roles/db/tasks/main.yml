@@ -7,5 +7,10 @@
 ---
 
 - include: install_db_packages.yml
-- include: config_database.yml
+
+- include: config_postgresql.yml
+  when: db_backend is 'postgresql'
+
+- include: config_mysql.yml
+  when: db_backend is 'mysql'
 
