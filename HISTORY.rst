@@ -7,6 +7,7 @@ History
 ++++++++++++++++++
 * Changing Django management command defaults to deploy directory within the
   project instead of your ~/.ssh key directory.
+* New option in underwear.yml to deploy to MySQL or PostgreSQL.
 
 
 0.4.3 (2014-01-02)

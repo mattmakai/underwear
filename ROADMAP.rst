@@ -8,11 +8,11 @@ This document proposes how Underwear will evolve over the course of 2014.
 * Add support for deploying Flask apps.
 * Make deployer username configurable
 
-0.4.5
+0.4.6
 +++++
 * Add new parser for command line options
 
-0.4.4
+0.4.5
 +++++
 * Add flags to configure how a Django app should be deployed.
 * Clean up ugly Django management command integration.
