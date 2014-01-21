@@ -4,28 +4,11 @@
 #
 ---
 
-- name: ensure database is created
+- name: ensure database is created in mysql
+  mysql_db: name={{dbname}} state=present
   sudo: yes
-  sudo_user: postgres
-  postgresql_db: db={{dbname}}
 
 - name: ensure user has access to database
+  mysql_user: name={{ deploy_user }} password={{ db_password }} 
+              priv=*.*:ALL state=present
   sudo: yes
-  sudo_user: postgres
-  postgresql_user: db={{dbname}} user={{dbuser}} 
-                   password={{ db_password }} priv=ALL
-
-- name: ensure new user does not have unnecessary privileges
-  sudo: yes
-  sudo_user: postgres
-  postgresql_user: user={{dbuser}} role_attr_flags=NOSUPERUSER
-
-- name: update postgres access and listen for external hosts
-  sudo: yes
-  template: src=pg_hba.conf.j2 dest=/etc/postgresql/9.1/main/pg_hba.conf
-
-- name: update postgres configuration
-  sudo: yes
-  template: src=postgresql.conf.j2 dest=/etc/postgresql/9.1/main/postgresql.conf
-  notify:
-    - restart postgresql
