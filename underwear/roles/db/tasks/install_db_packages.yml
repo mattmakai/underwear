@@ -15,7 +15,7 @@
     - postgresql
     - libpq-dev
     - python-psycopg2
-  when: db_backend is 'postgresql'
+  when: db_backend == 'postgresql'
 
 - name: ensure mysql database packages are installed
   apt: name={{item}}
@@ -24,4 +24,4 @@
     - mysql-server
     - libmysqlclient-dev
     - python-mysqldb
-  when: db_backend is 'mysql'
+  when: db_backend == 'mysql'
