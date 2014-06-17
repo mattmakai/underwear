@@ -67,6 +67,8 @@ def deploy(args):
 
     sshpass = None
     sudopass = None
+    su_pass = None
+    vault_pass = None
     options.ask_pass = options.ask_pass or C.DEFAULT_ASK_PASS
     if options.connection == "local":
         options.ask_pass = False
