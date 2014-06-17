@@ -3,6 +3,13 @@
 History
 -------
 
+0.4.5 (2014-06-17)
+++++++++++++++++++
+* Updated to work with the latest Ansible release under the covers (1.6.3).
+* Fixed a bug with evaluating conditional for postgresql backend.
+* Fixed issue where fail2ban wouldn't be found on a system because the apt
+  cache was not updated.
+
 0.4.4 (2014-01-05)
 ++++++++++++++++++
 * Changing Django management command defaults to deploy directory within the
