@@ -76,7 +76,7 @@ def deploy(args):
     (sshpass, sudopass, su_pass, vault_pass) = \
         utils.ask_passwords(ask_pass=options.ask_pass, 
         ask_sudo_pass=options.ask_sudo_pass, ask_su_pass=options.ask_su_pass,
-        vault_pass=options.ask_vault_pass)
+        ask_vault_pass=options.ask_vault_pass)
     options.sudo_user = options.sudo_user or C.DEFAULT_SUDO_USER
     options.su_user = options.su_user or C.DEFAULT_SU_USER
 
