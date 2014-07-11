@@ -19,7 +19,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='underwear',
-    version='0.4.5',
+    version='0.5.0',
     description='Dead simple LAMP-stack deployments for Python-' + \
                 'powered web applications',
     long_description=readme + '\n\n' + history,
@@ -28,6 +28,9 @@ setup(
     url='https://github.com/makaimc/underwear',
     packages=[
         'underwear',
+    ],
+    scripts=[
+        'bin/underwear',
     ],
     package_dir={'underwear': 'underwear'},
     include_package_data=True,
