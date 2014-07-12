@@ -1,0 +1,12 @@
+###
+# Configures the Flask application including the database.
+#
+---
+
+#- name: Flask syncdb
+#  django_manage: command=syncdb
+#                 app_path={{app_code_dir}}
+#                 virtualenv={{virtualenv_dir}}
+#  environment: django_env_vars
+
+

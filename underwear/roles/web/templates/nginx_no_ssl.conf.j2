@@ -1,4 +1,4 @@
-upstream app_server_djangoapp {
+upstream app_server_wsgiapp {
   server localhost:8000 fail_timeout=0;
 }
 
@@ -25,7 +25,7 @@ server {
     proxy_redirect off;
 
     if (!-f $request_filename) {
-      proxy_pass http://app_server_djangoapp;
+      proxy_pass http://app_server_wsgiapp;
       break;
     }
   }

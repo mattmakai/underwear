@@ -6,6 +6,14 @@
 
 - include: install_web_packages.yml
 - include: config_web_server.yml
-- include: config_web_app.yml
+- include: clone_app_install_deps.yml
+
+- include: config_django.yml
+  when: '"{{ wsgi_framework|lower }}" == "django"'
+
+- include: config_flask.yml
+  when: '"{{ wsgi_framework|lower }}" == "flask"'
+
 - include: config_supervisor.yml
+
 

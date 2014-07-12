@@ -1,0 +1,61 @@
+###
+# Pulls the code from a remote Git repository, configures the web application,
+# creates a virtualenv, and collects static assets
+#
+---
+
+- name: install known_hosts file to access GitHub
+  copy: src={{ ssh_dir }}/known_hosts 
+        dest=/home/{{ deploy_user }}/.ssh
+
+- name: checkout latest web app code
+  git: repo={{code_repository}} dest={{app_code_dir}}
+
+- name: check if virtualenv already exists
+  stat: path={{virtualenv_dir}}
+  register: venv_dir
+
+- name: create virtualenv for Django web application
+  shell: virtualenv {{virtualenv_dir}}
+  when: venv_dir.stat.isdir is not defined
+
+- name: install web application dependencies listed in requirements.txt
+  pip: requirements={{app_code_dir}}/requirements.txt
+       virtualenv={{virtualenv_dir}}
+
+- name: check if app/static directory exists
+  stat: path={{app_code_dir}}/static
+  register: static_dir
+
+- name: create static directory for Django app if it does not exist
+  command: mkdir {{app_code_dir}}/static
+  when: static_dir.stat.isdir is not defined
+
+- name: Django collectstatic
+  django_manage: command=collectstatic 
+                 app_path={{app_code_dir}}
+                 virtualenv={{virtualenv_dir}}
+  environment: django_env_vars
+
+- name: Django syncdb
+  django_manage: command=syncdb
+                 app_path={{app_code_dir}}
+                 virtualenv={{virtualenv_dir}}
+  environment: django_env_vars
+
+
+- name: Django migrate
+  django_manage: command=migrate
+                 app_path={{app_code_dir}}
+                 virtualenv={{virtualenv_dir}}
+  environment: django_env_vars
+  when: django_use_south
+
+- name: Django loaddata
+  django_manage: command=loaddata
+                 app_path={{app_code_dir}}
+                 virtualenv={{virtualenv_dir}}
+                 fixtures={{app_code_dir}}/{{ django_fixtures_file }}
+  environment: django_env_vars
+  when: django_fixtures_file is defined and django_fixtures_file is not ""
+
