@@ -2,10 +2,10 @@
 Underwear
 ===============================
 
-.. image:: https://badge.fury.io/py/underwear.png
-    :target: http://badge.fury.io/py/underwear
+.. image:: https://img.shields.io/pypi/v/underwear.svg
+    :target: https://pypi.python.org/pypi/underwear
     
-.. image:: https://travis-ci.org/makaimc/underwear.png?branch=master
+.. image:: https://img.shields.io/travis/makaimc/underwear/master.svg
         :target: https://travis-ci.org/makaimc/underwear
 
 
