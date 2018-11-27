@@ -61,7 +61,7 @@ def deploy(args):
 
     inventory = ansible.inventory.Inventory(options.inventory)
     inventory.subset(options.subset)
-    print "number of hosts: %s" % str(len(inventory.list_hosts()))
+    print("number of hosts: %(s)" % str(len(inventory.list_hosts())))
     if len(inventory.list_hosts()) == 0:
         raise errors.AnsibleError("provided hosts list is empty")
 
