@@ -2,6 +2,8 @@
 Underwear
 ===============================
 
+**This project is no longer under active development. Sorry folks, my other open source projects take too much of my time away from working on a library like this one. Fork away!**
+
 .. image:: https://img.shields.io/pypi/v/underwear.svg
     :target: https://pypi.python.org/pypi/underwear
     
@@ -116,10 +118,3 @@ Features
 * Configurable via a simple YAML template
 * Support for ad hoc deployment needs without SSH-ing into remote servers
 
-Note
-----
-Underwear is under active development and I use it personally for my Django
-and Flask side projects. However, the library is not polished or full of 
-automated tests. The code needs a lot of clean up. Eventually the library
-will mature but for now it's used to wrap Ansible with a simple Python
-interface and test what can be done with WSGI deployments.
